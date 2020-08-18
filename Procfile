@@ -1,2 +1,2 @@
-worker: python remember.py
+worker: python discordjokeExtension.py 
 
