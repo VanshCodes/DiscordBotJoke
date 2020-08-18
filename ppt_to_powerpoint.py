@@ -5,7 +5,7 @@ from pdf2image import convert_from_path
 from pptx import Presentation
 from pptx.util import Inches
 from io import BytesIO
-os.system("sudo apt install poppler-utils")
+#os.system("sudo apt install poppler-utils")
 def convert(pdf_file):
 	print()
 	print("Converting file: " + pdf_file)
