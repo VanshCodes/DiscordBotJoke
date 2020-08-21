@@ -4,15 +4,24 @@ import discord,asyncio,json,random
 from discord.ext import commands
 from discord import File
 import jokesupport
-token ="NzQxMjM5NTQxNzgzODU1MTY0.Xy0rHg.cH_UZgKl1wvqmUSJa7mE00dYebE"
+token = os.getenv("TOKEN")
+print(token)
 client = commands.Bot(command_prefix='.')
-# channel = client.get_channel(604481772171952170)
 # @client.event
 def convertandPRovide(r,name):
 	with open(f'{name}.pdf', 'wb') as f:		
 		f.write(r)
 	ppt_to_powerpoint.convert(f"{name}.pdf")
-	
+def shamingP(name):
+	a = [f"{name} agrees that flatearthers are gods of physics.","So how many dimensions do you see right now?",
+	f'''
+Engineers - Please Donot Move Coffee Machine It will change settings.
+{name} - Please DO NOT observe coffee machine It will change qauntum states.''',
+	f"{name} Believes Newton and his equation Gravity = Gm1m2/r2",
+	f"Nah! {name} is Newton"
+]
+
+	return random.choice(a)
 # @client.event
 # async def on_message(message):
 # 	channel = message.channel
@@ -22,7 +31,7 @@ def convertandPRovide(r,name):
 # def jokef():
 	# url = "https://gofugly.in/api/sub_categories/23"
 	# # ch = ["ACCHE BOL","DHARMIK GYAAN","FACTS"]
-	# a  = get(url)
+	# a  = get)(url)
 
 	# p = json.loads(a.text)
 	# randomn = random.randint(0,len(p["result"]))	
@@ -39,7 +48,12 @@ def jokef():
 async def joke(ctx):
 	message = jokef()
 	await ctx.send(message)
-
+@client.command()
+async def shame(ctx):
+	if "peaky" in str(ctx.author).lower():
+		await ctx.send("You are too stupid too shame anyone.")
+	message = shamingP(ctx.author)
+	await ctx.send(message)
 @client.command()
 async def ppt(ctx):
     attachment_url = ctx.message.attachments[0].url
